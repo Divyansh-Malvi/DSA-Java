@@ -34,6 +34,6 @@ public class PushMethod {
        push(50);
 
        show();
-       
+
     }
 }
