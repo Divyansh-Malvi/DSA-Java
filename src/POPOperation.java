@@ -2,10 +2,19 @@ public class POPOperation {
     static int arr[] = new int[5];
     static int top = -1;
     public static boolean isEmpty(){
+
         return top == -1;
     }
     public static boolean isFull(){
+
         return top == arr.length - 1;
+    }
+    public static int peek() {
+        if (top >= 0) {
+            return arr[top];
+        } else {
+            return -1;
+        }
     }
     public static void push(int data){
         //check overflow
@@ -40,6 +49,7 @@ public class POPOperation {
         System.out.println("Stack is FUll : " + isFull());
         System.out.println("=========Pop()===Operation");
         System.out.println("" + pop());
+        System.out.println("TOP value = " + peek());
         System.out.println("" + pop());
         System.out.println("" + pop());
         System.out.println("" + pop());
