@@ -16,20 +16,23 @@ public class InsertAtLastInDoublyLinkedList {
             temp = temp.next;
         }
     }
-    public InsertAtLastInDoublyLinkedList addLast(InsertAtLastInDoublyLinkedList tail, InsertAtLastInDoublyLinkedList head, int data) {
-        //check list is empty or not
+
+    public InsertAtLastInDoublyLinkedList addNodeLast(InsertAtLastInDoublyLinkedList head , int data) {
         if (head == null) {
-            System.out.println("List is empty");
+            System.out.println("list is empty");
         } else {
-            //create a new node
+            InsertAtLastInDoublyLinkedList temp = head;
             InsertAtLastInDoublyLinkedList newNode = new InsertAtLastInDoublyLinkedList(data);
-            newNode.prev = tail;
-            newNode = tail;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+            newNode.prev = temp.next;
             newNode.next = null;
 
-
         }
-        return head;
+        return  head;
+
     }
 
     public static void main(String[] args) {
@@ -40,20 +43,22 @@ public class InsertAtLastInDoublyLinkedList {
         InsertAtLastInDoublyLinkedList f5 = new InsertAtLastInDoublyLinkedList(50);
 
         f1.next = f2;
-        f2.next = f3;
-        f3.next = f4;
-        f4.next = f5;
         f2.prev = f1;
+        f2.next = f3;
         f3.prev = f2;
+        f3.next = f4;
         f4.prev = f3;
+        f4.next = f5;
         f5.prev = f4;
 
         InsertAtLastInDoublyLinkedList head = f1;
-        InsertAtLastInDoublyLinkedList tail = f5;
-
         f1.display(head);
-
-        head = head.addLast(tail, head, 60);
+        System.out.println();
+        head = head.addNodeLast(head, 60);
         head.display(head);
+
+        }
+
+
     }
-}
+
